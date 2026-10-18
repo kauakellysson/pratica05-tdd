@@ -3,6 +3,7 @@ package com.gqs.aula.tdd;
 public class CalculadoraNota {
     public static final double NOTA_MINIMA_APROVACAO = 70;
     public static final double FREQUENCIA_MINIMA = 75;
+    public static final double PONTOS_MINIMOS_PARA_AI = 40;
 
     public double calcularNotaFinal(double a1, double a2, double a3) {
         validarNota(a1, 30, "A1");
@@ -26,7 +27,8 @@ public class CalculadoraNota {
         double notaFinal = calcularNotaFinal(a1, a2, a3);
         return !estaAprovadoPorNota(notaFinal)
                 && frequencia >= FREQUENCIA_MINIMA
-                && (a1 + a3 >= 40 || a2 + a3 >= 40);
+                && (a1 + a3 >= PONTOS_MINIMOS_PARA_AI
+                || a2 + a3 >= PONTOS_MINIMOS_PARA_AI);
     }
 
     private void validarNota(double nota, double notaMaxima, String nomeAvaliacao) {
