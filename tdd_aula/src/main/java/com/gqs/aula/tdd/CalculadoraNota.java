@@ -32,7 +32,14 @@ public class CalculadoraNota {
     }
 
     public double aplicarAI(double a1, double a2, double a3, double notaAI) {
-        return 0;
+        validarNota(notaAI, 30, "AI");
+        double notaFinal = calcularNotaFinal(a1, a2, a3);
+        double menorNota = Math.min(a1, a2);
+
+        if (notaAI > menorNota) {
+            return notaFinal - menorNota + notaAI;
+        }
+        return notaFinal;
     }
 
     private void validarNota(double nota, double notaMaxima, String nomeAvaliacao) {
