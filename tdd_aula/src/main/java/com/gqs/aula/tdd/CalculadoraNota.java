@@ -14,6 +14,10 @@ public class CalculadoraNota {
         return notaFinal >= NOTA_MINIMA_APROVACAO;
     }
 
+    public String situacao(double notaFinal, double frequencia) {
+        return "";
+    }
+
     private void validarNota(double nota, double notaMaxima, String nomeAvaliacao) {
         if (nota < 0 || nota > notaMaxima) {
             throw new IllegalArgumentException(
