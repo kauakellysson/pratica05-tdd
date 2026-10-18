@@ -85,14 +85,14 @@ public class CalculadoraNotaTest {
     void deveReprovarComNotaBaixa() {
         CalculadoraNota calc = new CalculadoraNota();
 
-        assertEquals("REPROVADO", calc.situacao(60, 90));
+        assertEquals("REPROVADO POR NOTA", calc.situacao(60, 90));
     }
 
     @Test
     void deveReprovarPorFrequenciaMesmoComNotaAlta() {
         CalculadoraNota calc = new CalculadoraNota();
 
-        assertEquals("REPROVADO", calc.situacao(95, 74));
+        assertEquals("REPROVADO POR FALTA", calc.situacao(95, 74));
     }
 
     @Test
@@ -166,5 +166,12 @@ public class CalculadoraNotaTest {
                 () -> calc.aplicarAI(10, 20, 30, -1));
         assertThrows(IllegalArgumentException.class,
                 () -> calc.aplicarAI(10, 20, 30, 31));
+    }
+
+    @Test
+    void deveDarPrioridadeAFaltaQuandoNotaEFrequenciaSaoBaixas() {
+        CalculadoraNota calc = new CalculadoraNota();
+
+        assertEquals("REPROVADO POR FALTA", calc.situacao(50, 60));
     }
 }
