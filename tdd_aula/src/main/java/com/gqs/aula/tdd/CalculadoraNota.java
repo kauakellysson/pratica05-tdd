@@ -31,6 +31,10 @@ public class CalculadoraNota {
                 || a2 + a3 >= PONTOS_MINIMOS_PARA_AI);
     }
 
+    public double aplicarAI(double a1, double a2, double a3, double notaAI) {
+        return 0;
+    }
+
     private void validarNota(double nota, double notaMaxima, String nomeAvaliacao) {
         if (nota < 0 || nota > notaMaxima) {
             throw new IllegalArgumentException(
