@@ -22,6 +22,10 @@ public class CalculadoraNota {
         return "REPROVADO";
     }
 
+    public boolean podeFazerAI(double a1, double a2, double a3, double frequencia) {
+        return false;
+    }
+
     private void validarNota(double nota, double notaMaxima, String nomeAvaliacao) {
         if (nota < 0 || nota > notaMaxima) {
             throw new IllegalArgumentException(
