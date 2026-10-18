@@ -6,6 +6,10 @@ public class CalculadoraNota {
     public static final double PONTOS_MINIMOS_PARA_AI = 40;
     public static final double NOTA_MAXIMA_AI = 30;
 
+    private static final String SITUACAO_APROVADO = "APROVADO";
+    private static final String SITUACAO_REPROVADO_POR_FALTA = "REPROVADO POR FALTA";
+    private static final String SITUACAO_REPROVADO_POR_NOTA = "REPROVADO POR NOTA";
+
     public double calcularNotaFinal(double a1, double a2, double a3) {
         validarNota(a1, 30, "A1");
         validarNota(a2, 30, "A2");
@@ -19,12 +23,12 @@ public class CalculadoraNota {
 
     public String situacao(double notaFinal, double frequencia) {
         if (frequencia < FREQUENCIA_MINIMA) {
-            return "REPROVADO POR FALTA";
+            return SITUACAO_REPROVADO_POR_FALTA;
         }
         if (!estaAprovadoPorNota(notaFinal)) {
-            return "REPROVADO POR NOTA";
+            return SITUACAO_REPROVADO_POR_NOTA;
         }
-        return "APROVADO";
+        return SITUACAO_APROVADO;
     }
 
     public boolean podeFazerAI(double a1, double a2, double a3, double frequencia) {
