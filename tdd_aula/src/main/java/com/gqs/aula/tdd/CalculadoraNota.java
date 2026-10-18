@@ -15,7 +15,10 @@ public class CalculadoraNota {
     }
 
     public String situacao(double notaFinal, double frequencia) {
-        return "";
+        if (estaAprovadoPorNota(notaFinal) && frequencia >= 75) {
+            return "APROVADO";
+        }
+        return "REPROVADO";
     }
 
     private void validarNota(double nota, double notaMaxima, String nomeAvaliacao) {
